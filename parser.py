@@ -5,12 +5,14 @@ from collections import namedtuple
 from bs4 import BeautifulSoup as bs
 from helper import BoldParser
 import logging
+import warnings
 
 
 def get_page_soup(topic, page):
     return bs(requests.get(topic + '&page={0}'.format(page)).text, 'html.parser')
 
 
+warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 script, topic, start_page = sys.argv
 page = int(start_page) if start_page else 0
 last_post_lid = 0
