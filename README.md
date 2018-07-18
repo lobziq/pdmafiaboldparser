@@ -7,7 +7,7 @@
 
 то есть например 
 
-> python parser.py https://prodota.ru/forum/index.php?showtopic=214951 1 
+> python parser.py https://prodota.ru/forum/index.php?showtopic=214983 1 
 
 топик будет отпарсен с 1 страницы
 
