@@ -35,11 +35,14 @@ while 1:
         timestamp = post_info['post-date']
 
         bold_content = ''
-        for post_comment in post_block.find(itemprop='commentText').find_all(class_=lambda x: x != 'edit',
-                                                                             recursive=False):
-            comment_soup = bs(str(postparser.normalize(str(post_comment))), 'html.parser')
-            for bold in comment_soup.find_all('strong', recursive=False):
-                bold_content += bold.text + ' '
+        comment_text = post_block.find(itemprop='commentText')
+        for br in comment_text.find_all('br'):
+            br.extract()
+        for post_comment in comment_text.find_all(recursive=False):
+            if len(post_comment.attrs.keys()) == 0:
+                comment_soup = bs(str(postparser.normalize(str(post_comment))), 'html.parser')
+                for bold in comment_soup.find_all('strong', recursive=False):
+                    bold_content += bold.text + ' '
 
         if lid > last_post_lid:
             if len(bold_content) > 0:
