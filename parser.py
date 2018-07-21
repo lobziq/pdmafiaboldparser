@@ -57,4 +57,3 @@ while 1:
         time.sleep(60)
 
     soup = get_page_soup(topic, page)
-    
