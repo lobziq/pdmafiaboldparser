@@ -52,7 +52,8 @@ while 1:
 
     if soup.find('li', {'class': 'next'}):
         page += 1
-        soup = get_page_soup(topic, page)
         # time.sleep(3)  # мож там у ПД антиспам какой, если что можно дилей включить
     else:
         time.sleep(60)
+
+    soup = get_page_soup(topic, page)
