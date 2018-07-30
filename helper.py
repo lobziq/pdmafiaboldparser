@@ -5,7 +5,7 @@ class BoldParser(HTMLParser):
     def __init__(self):
         HTMLParser.__init__(self)
         self.elements = []
-        self.allowed_tags = ['strong']
+        self.allowed_tags = ['strong', 'b']
 
     def handle_starttag(self, tag, attrs):
         if tag in self.allowed_tags:

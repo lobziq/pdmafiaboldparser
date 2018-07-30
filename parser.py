@@ -54,6 +54,6 @@ while 1:
         page += 1
         # time.sleep(3)  # мож там у ПД антиспам какой, если что можно дилей включить
     else:
-        time.sleep(60)
+        time.sleep(10)
 
     soup = get_page_soup(topic, page)
